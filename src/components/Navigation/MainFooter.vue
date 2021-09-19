@@ -23,7 +23,7 @@
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4" style="color:rgba(0,48,110,255)">Links</h6>
                         <p>
-                            <a href="#!" class="text-reset">Nosotros</a>
+                            <a href="/about" class="text-reset">Nosotros</a>
                         </p>
                     </div>
                     <!-- Grid column -->
