@@ -23,7 +23,7 @@
         </div>
 
         <div class="container-fluid p-5">
-            <carousel :items-to-show="1" :breakpoints="breakpoints">
+            <carousel :items-to-show="1" :wrap-around="true" :breakpoints="breakpoints">
                 <slide v-for="slide in data_About.Carousel" :key="slide">
                         <img :src="'http://localhost:1337'+slide.url" alt class="img-fluid" />
                 </slide>
