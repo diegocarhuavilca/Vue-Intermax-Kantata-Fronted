@@ -1,6 +1,8 @@
 <template>
     <div v-if="ready">
-        <div class="container col-xxl-8 px-4 py-5" v-if="banner_principal">
+
+        <!--BANNER PRINCIPAL-->
+        <div class="container banner_principal col-xxl-8 px-4 py-5" v-if="banner_principal">
             <div class="row d-flex align-items-center g-5 py-5">
                 <div class="container w-50">
                     <img
@@ -28,6 +30,8 @@
             </div>
         </div>
 
+        <!--INFORMACION CON IMAGENES -->
+
         <div class="container px-4 py-5" id="custom-cards" v-if="banner_informacion">
             <h1
                 class="display-5 fw-bold lh-1 mb-3"
@@ -51,7 +55,9 @@
             </div>
         </div>
 
-        <div class="container px-4 py-5 d-flex" v-if="banner_beneficios">
+        <!--BANNER KEY BENEFITS-->
+
+        <div class="container key-benefits px-4 py-5 d-flex" v-if="banner_beneficios">
             <div class="col-md-6 p-3">
                 <div
                     class="h-100 p-5 text-white rounded-3 d-flex flex-column justify-content-center align-items-center"
@@ -71,8 +77,11 @@
                 </div>
             </div>
         </div>
+
+        <!--INFORMACION DEL BANNER ISO -->
+
         <div class="container col-xxl-8 px-4 py-5" v-if="banner_iso">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img
                         :src="'http://localhost:1337'+ banner_iso.imagen.url"
@@ -90,12 +99,13 @@
             </div>
         </div>
 
+
+        <!-- INFORMACION FEATURETTES-->
         <div
             class="container-fluid d-flex flex-column justify-content-center"
             v-if="banner_informacion_adicional"
         >
             <div class="container marketing">
-                <!-- START THE FEATURETTES -->
 
                 <div
                     class="row featurette"
@@ -107,13 +117,7 @@
                         <h2 class="featurette-heading fw-bold">{{card.titulo}}</h2>
                     </div>
                     <div class="col-md-5 order-md-1">
-                        <div v-if="index%2!=0">hola</div>
-                        <img
-                            :src="'http://localhost:1337'+card.imagen.url"
-                            width="400"
-                            height="400"
-                            alt
-                        />
+                        <img :src="'http://localhost:1337'+card.imagen.url" alt style="width:70%" />
                     </div>
                 </div>
 
@@ -155,6 +159,47 @@ export default {
     &:hover {
         background-color: rgba(0, 48, 110, 255);
         color: white;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .banner_principal {
+
+        .row{
+            flex-direction: column;
+            padding: 1.5rem;
+            padding-top: 0 !important;
+
+            .container {
+                width:100% !important;
+                display:flex;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .key-benefits{
+        display:flex;
+        flex-direction: column-reverse;
+        padding: 0 !important;
+    }
+
+    #custom-cards{
+        padding-bottom: 0 !important;
+
+        #featured-3{
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+
+            .row{
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
+
+
     }
 }
 </style>
