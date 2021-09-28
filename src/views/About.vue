@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="container-fluid p-5">
+        <!-- <div class="container-fluid p-5">
             <carousel :items-to-show="1" :wrap-around="true" :breakpoints="breakpoints">
                 <slide v-for="slide in data_About.Carousel" :key="slide">
                     <img
@@ -36,7 +36,7 @@
                     <navigation />
                 </template>
             </carousel>
-        </div>
+        </div>-->
 
         <div class="container px-4 py-5 certificaciones">
             <div class="container-fluid d-flex">
@@ -64,13 +64,13 @@
 <script>
 import axios from "axios";
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Navigation } from "vue3-carousel";
+// import { Carousel, Slide, Navigation } from "vue3-carousel";
 export default {
     name: "App",
     components: {
-        Carousel,
-        Slide,
-        Navigation,
+        // Carousel,
+        // Slide,
+        // Navigation,
     },
     data() {
         return {
