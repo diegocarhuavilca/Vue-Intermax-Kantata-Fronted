@@ -25,7 +25,11 @@
         <div class="container-fluid p-5">
             <carousel :items-to-show="1" :wrap-around="true" :breakpoints="breakpoints">
                 <slide v-for="slide in data_About.Carousel" :key="slide">
-                        <img :src="'http://localhost:1337'+slide.url" alt class="img-fluid" />
+                    <img
+                        :src="'https://kantata-backend.herokuapp.com'+slide.url"
+                        alt
+                        class="img-fluid"
+                    />
                 </slide>
 
                 <template #addons>
@@ -43,7 +47,7 @@
                 >
                     <img
                         v-if="certi.imagen"
-                        :src="'http://localhost:1337'+certi.imagen.url"
+                        :src="'https://kantata-backend.herokuapp.com'+certi.imagen.url"
                         class="my-5"
                         width="200"
                         height="200"
@@ -81,7 +85,9 @@ export default {
         };
     },
     async beforeCreate() {
-        const response = await axios.get("http://localhost:1337/nosotros");
+        const response = await axios.get(
+            "https://kantata-backend.herokuapp.com/nosotros"
+        );
         this.data_About = response.data;
         this.ready = true;
     },
@@ -99,7 +105,7 @@ export default {
             display: flex;
             flex-direction: column;
 
-            .container{
+            .container {
                 width: 100% !important;
             }
         }
@@ -110,8 +116,8 @@ export default {
         .container-fluid {
             flex-direction: column;
 
-            .container{
-                width:100% !important;
+            .container {
+                width: 100% !important;
             }
         }
     }

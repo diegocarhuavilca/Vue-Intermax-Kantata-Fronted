@@ -1,7 +1,9 @@
 <template>
-    <NavBar/>
-    <router-view></router-view>
-    <MainFooter/>
+    <div id="main">
+        <NavBar />
+        <router-view></router-view>
+        <MainFooter />
+    </div>
 </template>
 
 <style lang="scss">
@@ -15,13 +17,12 @@
 </style>
 
 <script>
-import NavBar from '@/components/Navigation/NavBar'
-import MainFooter from '@/components/Navigation/MainFooter'
+import NavBar from "@/components/Navigation/NavBar";
+import MainFooter from "@/components/Navigation/MainFooter";
 export default {
-  
-  components:{
-    NavBar,
-    MainFooter
-  }
-}
+    components: {
+        NavBar,
+        MainFooter,
+    },
+};
 </script>

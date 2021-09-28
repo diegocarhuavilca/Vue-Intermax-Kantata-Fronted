@@ -1,12 +1,11 @@
 <template>
     <div v-if="ready">
-
         <!--BANNER PRINCIPAL-->
         <div class="container banner_principal col-xxl-8 px-4 py-5" v-if="banner_principal">
             <div class="row d-flex align-items-center g-5 py-5">
                 <div class="container w-50">
                     <img
-                        :src="'http://localhost:1337'+banner_principal.imagen.url"
+                        :src="'https://kantata-backend.herokuapp.com'+banner_principal.imagen.url"
                         class="d-block mx-lg-auto img-fluid"
                         alt="Bootstrap Themes"
                         width="300"
@@ -43,7 +42,7 @@
                     <div class="feature col" v-for="card in banner_informacion.card" :key="card">
                         <div class="feature-icon bg-gradient">
                             <img
-                                :src="'http://localhost:1337'+card.imagen.url"
+                                :src="'https://kantata-backend.herokuapp.com'+card.imagen.url"
                                 width="250"
                                 height="250"
                                 alt
@@ -84,7 +83,7 @@
             <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img
-                        :src="'http://localhost:1337'+ banner_iso.imagen.url"
+                        :src="'https://kantata-backend.herokuapp.com'+ banner_iso.imagen.url"
                         class="d-block mx-lg-auto img-fluid"
                         alt="Bootstrap Themes"
                         width="350"
@@ -99,14 +98,12 @@
             </div>
         </div>
 
-
         <!-- INFORMACION FEATURETTES-->
         <div
             class="container-fluid d-flex flex-column justify-content-center"
             v-if="banner_informacion_adicional"
         >
             <div class="container marketing">
-
                 <div
                     class="row featurette"
                     :class="(index%2!=0?'flex-row-reverse':'')"
@@ -117,7 +114,11 @@
                         <h2 class="featurette-heading fw-bold">{{card.titulo}}</h2>
                     </div>
                     <div class="col-md-5 order-md-1">
-                        <img :src="'http://localhost:1337'+card.imagen.url" alt style="width:70%" />
+                        <img
+                            :src="'https://kantata-backend.herokuapp.com'+card.imagen.url"
+                            alt
+                            style="width:70%"
+                        />
                     </div>
                 </div>
 
@@ -141,7 +142,9 @@ export default {
         };
     },
     async beforeCreate() {
-        const response = await axios.get("http://localhost:1337/home");
+        const response = await axios.get(
+            "https://kantata-backend.herokuapp.com/home"
+        );
         this.banner_principal = response.data.Banner;
         this.banner_informacion = response.data.Banner_Informacion;
         this.banner_beneficios = response.data.Beneficios;
@@ -164,15 +167,14 @@ export default {
 
 @media screen and (max-width: 770px) {
     .banner_principal {
-
-        .row{
+        .row {
             flex-direction: column;
             padding: 1.5rem;
             padding-top: 0 !important;
 
             .container {
-                width:100% !important;
-                display:flex;
+                width: 100% !important;
+                display: flex;
                 align-items: center;
                 flex-direction: column;
                 margin-top: 0;
@@ -180,26 +182,24 @@ export default {
         }
     }
 
-    .key-benefits{
-        display:flex;
+    .key-benefits {
+        display: flex;
         flex-direction: column-reverse;
         padding: 0 !important;
     }
 
-    #custom-cards{
+    #custom-cards {
         padding-bottom: 0 !important;
 
-        #featured-3{
+        #featured-3 {
             padding-bottom: 0 !important;
             padding-top: 0 !important;
 
-            .row{
+            .row {
                 padding-bottom: 0 !important;
                 padding-top: 0 !important;
             }
         }
-
-
     }
 }
 </style>
