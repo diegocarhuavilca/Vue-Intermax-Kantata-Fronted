@@ -5,9 +5,9 @@
             <div class="row d-flex align-items-center g-5 py-5">
                 <div class="container w-50">
                     <img
-                        :src="'https://kantata-backend.herokuapp.com'+banner_principal.imagen.url"
+                        :src="'https://www2.kantata.pe'+banner_principal.imagen.url"
                         class="d-block mx-lg-auto img-fluid"
-                        alt="Bootstrap Themes"
+                        alt="Generador de Oxigeno"
                         width="300"
                         loading="lazy"
                     />
@@ -42,10 +42,11 @@
                     <div class="feature col" v-for="card in banner_informacion.card" :key="card">
                         <div class="feature-icon bg-gradient">
                             <img
-                                :src="'https://kantata-backend.herokuapp.com'+card.imagen.url"
+                                :src="'https://www2.kantata.pe'+card.imagen.url"
                                 width="250"
                                 height="250"
-                                alt
+                                loading="lazy"
+                                alt="Imagen de informacion"
                             />
                         </div>
                         <h4 class="pt-5 mb-4 lh-1 fw-bold">{{card.titulo}}</h4>
@@ -83,9 +84,9 @@
             <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img
-                        :src="'https://kantata-backend.herokuapp.com'+ banner_iso.imagen.url"
+                        :src="'https://www2.kantata.pe'+ banner_iso.imagen.url"
                         class="d-block mx-lg-auto img-fluid"
-                        alt="Bootstrap Themes"
+                        alt="Imagen certificacion ISO"
                         width="350"
                         loading="lazy"
                     />
@@ -115,9 +116,10 @@
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img
-                            :src="'https://kantata-backend.herokuapp.com'+card.imagen.url"
-                            alt
+                            :src="'https://www2.kantata.pe'+card.imagen.url"
+                            alt="Imagen caracteristicas"
                             style="width:70%"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -125,6 +127,27 @@
                 <!-- /END THE FEATURETTES -->
             </div>
         </div>
+    </div>
+    <div
+        v-if="(error==false && ready==false)"
+        class="container-fluid d-flex justify-content-center"
+    >
+        <lottie-player
+            src="https://assets1.lottiefiles.com/packages/lf20_Z4BhGL.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay
+        ></lottie-player>
+    </div>
+
+    <div v-if="error">
+        <h1>ERROR</h1>
+        <h5>{{error_data}}</h5>
+        <a href="/">
+            <button type="button" class="btn btn-primary">Home</button>
+        </a>
     </div>
 </template>
 	
@@ -139,18 +162,25 @@ export default {
             banner_iso: null,
             banner_adicional: null,
             ready: false,
+            error: false,
+            error_data: null,
         };
     },
+
     async beforeCreate() {
-        const response = await axios.get(
-            "https://kantata-backend.herokuapp.com/home"
-        );
-        this.banner_principal = response.data.Banner;
-        this.banner_informacion = response.data.Banner_Informacion;
-        this.banner_beneficios = response.data.Beneficios;
-        this.banner_iso = response.data.ISO;
-        this.banner_informacion_adicional = response.data.InformacionAdicional;
-        this.ready = true;
+        try {
+            const response = await axios.get("https://www2.kantata.pe/home");
+            this.banner_principal = response.data.Banner;
+            this.banner_informacion = response.data.Banner_Informacion;
+            this.banner_beneficios = response.data.Beneficios;
+            this.banner_iso = response.data.ISO;
+            this.banner_informacion_adicional =
+                response.data.InformacionAdicional;
+            this.ready = true;
+        } catch (e) {
+            this.error = true;
+            this.error_data = e;
+        }
     },
 };
 </script>

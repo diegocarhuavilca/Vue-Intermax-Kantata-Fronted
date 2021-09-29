@@ -41,22 +41,42 @@
         <div class="container px-4 py-5 certificaciones">
             <div class="container-fluid d-flex">
                 <div
-                    class="container w-50 col"
+                    class="container w-50 col d-flex flex-column align-items-center"
                     v-for="(certi,index) in data_About.certificacion"
                     :key="index"
                 >
                     <img
                         v-if="certi.imagen"
-                        :src="'https://kantata-backend.herokuapp.com'+certi.imagen.url"
-                        class="my-5"
+                        :src="'https://www2.kantata.pe'+certi.imagen.url"
+                        class="my-3"
                         width="200"
-                        height="200"
+                        alt="Certificaciones"
                     />
                     <h2 style="font-weight: bold">{{certi.titulo}}</h2>
-                    <p>{{certi.contenido}}</p>
+                    <p class="w-50">{{certi.contenido}}</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div
+        v-if="(error==false && ready==false)"
+        class="container-fluid d-flex justify-content-center"
+    >
+        <lottie-player
+            src="https://assets1.lottiefiles.com/packages/lf20_Z4BhGL.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay
+        ></lottie-player>
+    </div>
+    <div v-if="error">
+        <h1>ERROR</h1>
+        <h5>{{error_data}}</h5>
+        <a href="/">
+            <button type="button" class="btn btn-primary">Home</button>
+        </a>
     </div>
 </template>
 
@@ -82,14 +102,21 @@ export default {
                     snapAlign: "center",
                 },
             },
+            error: false,
+            error_data: null,
         };
     },
     async beforeCreate() {
-        const response = await axios.get(
-            "https://kantata-backend.herokuapp.com/nosotros"
-        );
-        this.data_About = response.data;
-        this.ready = true;
+        try {
+            const response = await axios.get(
+                "https://www2.kantata.pe/nosotros"
+            );
+            this.data_About = response.data;
+            this.ready = true;
+        } catch (error) {
+            this.error = true;
+            this.error_data = error;
+        }
     },
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted mt-5">
-
+    <footer class="text-center text-lg-start text-muted mt-5" id="footer">
         <!-- Section: Links  -->
         <section class="p-5">
             <div class="container text-center text-md-start mt-5">
@@ -11,19 +10,20 @@
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4" style="color:rgba(0,48,110,255)">
-                            <img src="@/assets/logo-square.png" width="30">
+                            <img src="@/assets/logo-square.png" width="30" />
                             Kantata Lab
                         </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nisi modi, veritatis enim cupiditate doloribus animi ullam
-                        </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nisi modi, veritatis enim cupiditate doloribus animi ullam</p>
                     </div>
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="color:rgba(0,48,110,255)">Links</h6>
-                        <p>
-                            <a href="/about" class="text-reset">Nosotros</a>
+                        <h6
+                            class="text-uppercase fw-bold mb-4"
+                            style="color:rgba(0,48,110,255)"
+                        >Links</h6>
+                        <p class="m-0">
+                            <a href="/about" class="text-reset m-0">Nosotros</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -31,9 +31,12 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="color:rgba(0,48,110,255)">Contacto</h6>
+                        <h6
+                            class="text-uppercase fw-bold mb-4"
+                            style="color:rgba(0,48,110,255)"
+                        >Contacto</h6>
                         <p>
-                            <i class="fas fa-home me-3"></i> Dirrecion de Lab
+                            <i class="fas fa-home me-3"></i> Direccion de Lab
                         </p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
