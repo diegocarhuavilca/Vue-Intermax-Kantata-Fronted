@@ -92,7 +92,10 @@
                     />
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">{{banner_iso.titulo}}</h1>
+                    <h1
+                        class="display-5 fw-bold lh-1 mb-3"
+                        style="color:rgba(0,48,110,255);"
+                    >{{banner_iso.titulo}}</h1>
                     <p class="lead">{{banner_iso.contenido}}</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
                 </div>
@@ -112,7 +115,10 @@
                     :key="index"
                 >
                     <div class="col-md-7 order-md-2 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading fw-bold">{{card.titulo}}</h2>
+                        <h2
+                            class="featurette-heading fw-bold"
+                            style="color:rgba(0,48,110,255);"
+                        >{{card.titulo}}</h2>
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img
@@ -125,6 +131,45 @@
                 </div>
 
                 <!-- /END THE FEATURETTES -->
+            </div>
+        </div>
+
+        <!-- APLICACIONES DE GENERADOR DE OXIGENO -->
+        <div class="container px-4 py-5">
+            <h1
+                class="fw-bold lh-1 mb-3"
+                style="color:rgba(0,48,110,255);"
+            >Aplicaciones del generador de gas oxígeno</h1>
+
+            <div class="container">
+                <div class="row row-cols-2 grid">
+                    <div
+                        class="col p-4 d-flex align-content-center"
+                        v-for="app in app_data"
+                        :key="app._id"
+                    >
+                        <div class="container-fluid">
+                            <div class="image-hover-text-container">
+                                <div class="image-hover-image">
+                                    <img
+                                        v-if="app.imagen.url"
+                                        width="400"
+                                        :src="'https://kantata-backend.herokuapp.com'+app.imagen.url"
+                                    />
+                                </div>
+                                <h2 class="titulo fw-bold lh-1 mb-3">{{app.titulo}}</h2>
+                                <div class="image-hover-text">
+                                    <div
+                                        class="image-hover-text-bubble d-flex justify-content-center align-items-center"
+                                        style="color:white"
+                                    >
+                                        <div class="container-fluid">{{app.texto}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -161,6 +206,7 @@ export default {
             banner_beneficios: null,
             banner_iso: null,
             banner_adicional: null,
+            app_data: null,
             ready: false,
             error: false,
             error_data: null,
@@ -169,13 +215,16 @@ export default {
 
     async beforeCreate() {
         try {
-            const response = await axios.get("https://www2.kantata.pe/home");
+            const response = await axios.get(
+                "https://kantata-backend.herokuapp.com/home"
+            );
             this.banner_principal = response.data.Banner;
             this.banner_informacion = response.data.Banner_Informacion;
             this.banner_beneficios = response.data.Beneficios;
             this.banner_iso = response.data.ISO;
             this.banner_informacion_adicional =
                 response.data.InformacionAdicional;
+            this.app_data = response.data.Aplicaciones.Aplicacion;
             this.ready = true;
         } catch (e) {
             this.error = true;
@@ -192,6 +241,79 @@ export default {
     &:hover {
         background-color: rgba(0, 48, 110, 255);
         color: white;
+    }
+}
+
+.image-hover-text-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    transition: all 0.2s linear;
+}
+
+.image-hover-image {
+    display: block;
+}
+.image-hover-image img {
+    height: 200px;
+}
+
+.titulo {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.image-hover-text {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    cursor: default;
+    transition: opacity 0.2s linear;
+    .image-hover-text-title {
+        opacity: 1;
+    }
+    opacity: 0;
+}
+.image-hover-text:hover {
+    opacity: 1;
+}
+
+.image-hover-text-bubble {
+    position: relative;
+    box-sizing: border-box;
+    height: 200px;
+    text-align: center;
+    background: rgba(0, 48, 110, 255);
+    border: none;
+    margin: auto auto;
+    padding: 2%;
+    overflow: hidden;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.image-hover-text .image-hover-text-title {
+    font-size: 25px;
+    display: block;
+}
+@media screen and (max-width: 1000px) {
+    .grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .col {
+            width: 100%;
+        }
     }
 }
 
