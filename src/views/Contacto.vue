@@ -83,7 +83,7 @@ export default {
     methods: {
         enviarFomulario() {
             axios
-                .post("http://localhost:1337/contactos", {
+                .post("https://www2.kantata.pe/contactos", {
                     Nombre: this.Nombre,
                     Apellido: this.Apellido,
                     Email: this.Email,
