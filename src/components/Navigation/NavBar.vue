@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top sticky-lg-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="@/assets/logo.png" width="100" alt="">
+                <img src="@/assets/logo.png" width="100" alt />
             </a>
             <button
                 class="navbar-toggler"
@@ -17,8 +17,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li>
-                        <router-link to="/about">Nosotros</router-link>
+                    <li class="mx-2">
+                        <router-link to="/about">Sobre Nosotros</router-link>
+                    </li>
+                    <li class="mx-2">
+                        <router-link to="/">Nuestros Productos</router-link>
+                    </li>
+
+                    <li class="mx-2">
+                        <router-link to="/contacto">Contactenos</router-link>
                     </li>
                 </ul>
             </div>
@@ -31,15 +38,15 @@ export default {};
 </script>
 
 <style lang="scss" scope>
-    a{
-        text-decoration: none;
-        color: rgba(0,48,110,255);
-        margin: 0.5rem;
-        transition: 0.3s ease-in-out;
-        font-weight: bold;
+a {
+    text-decoration: none;
+    color: rgba(0, 48, 110, 255);
+    margin: 0.5rem;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
 
-        &:hover{
-            color : #00b6dc;
-        }
+    &:hover {
+        color: #00b6dc;
     }
+}
 </style>

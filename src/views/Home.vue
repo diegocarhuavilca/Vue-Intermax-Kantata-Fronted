@@ -8,7 +8,6 @@
                         :src="'https://www2.kantata.pe'+banner_principal.imagen.url"
                         class="d-block mx-lg-auto img-fluid"
                         alt="Generador de Oxigeno"
-                        width="300"
                         loading="lazy"
                     />
                 </div>
@@ -19,37 +18,13 @@
                     >{{banner_principal.titulo}}</h1>
                     <p class="lead" style="text-align:justify">{{banner_principal.contenido}}</p>
                     <div class="d-grid gap-2 d-flex justify-content-center">
-                        <button
-                            type="button"
-                            class="btn btn-lg px-4 me-md-2"
-                            style="background-color:#00b6dc;color :white"
-                        >{{banner_principal.boton.texto}}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--INFORMACION CON IMAGENES -->
-
-        <div class="container px-4 py-5" id="custom-cards" v-if="banner_informacion">
-            <h1
-                class="display-5 fw-bold lh-1 mb-3"
-                style="color:rgba(0,48,110,255);"
-            >{{banner_informacion.titulo}}</h1>
-
-            <div class="container px-4 py-5" id="featured-3">
-                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-                    <div class="feature col" v-for="card in banner_informacion.card" :key="card">
-                        <div class="feature-icon bg-gradient">
-                            <img
-                                :src="'https://www2.kantata.pe'+card.imagen.url"
-                                width="250"
-                                height="250"
-                                loading="lazy"
-                                alt="Imagen de informacion"
-                            />
-                        </div>
-                        <h4 class="pt-5 mb-4 lh-1 fw-bold">{{card.titulo}}</h4>
+                        <router-link to="/contacto">
+                            <button
+                                type="button"
+                                class="btn btn-lg px-4 me-md-2"
+                                style="background-color:#00b6dc;color :white"
+                            >{{banner_principal.boton.texto}}</button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -60,20 +35,30 @@
         <div class="container key-benefits px-4 py-5 d-flex" v-if="banner_beneficios">
             <div class="col-md-6 p-3">
                 <div
-                    class="h-100 p-5 text-white rounded-3 d-flex flex-column justify-content-center align-items-center"
+                    class="h-100 p-5 bg-light rounded-3 d-flex flex-column"
                     style="background-color:#00b6dc;"
                 >
-                    <h2 class="fw-bold">{{banner_beneficios.tituloIzquierda}}</h2>
-                    <p v-html="banner_beneficios.beneficios"></p>
+                    <h2
+                        class="fw-bold"
+                        style="margin-bottom:1rem"
+                    >{{banner_beneficios.tituloIzquierda}}</h2>
+                    <p
+                        class="lead text-left"
+                        style="text-align:left"
+                        v-html="banner_beneficios.beneficios"
+                    ></p>
                 </div>
             </div>
             <div class="col-md-6 p-3">
                 <div
-                    class="h-100 p-5 bg-light rounded-3 d-flex justify-content-center align-items-center"
+                    class="h-100 p-5 bg-light rounded-3 d-flex flex-column justify-content-center align-items-center"
                 >
-                    <h2
-                        style="color:rgba(0,48,110,255); font-weight:bold"
-                    >{{banner_beneficios.tituloPrincipal}}</h2>
+                    <h2 class="fw-bold">Equipos para Carga Dinámica</h2>
+                    <p class="lead text-left" style="text-align:justify">
+                        El generador PSA opera en Ciclos.
+                        <br />Cada recipiente presuriza y despresuriza en menos de 5 segundos.
+                        <br />La válvula de ahorro de energía reduce la compresión del uso de aire durante la cobertura.
+                    </p>
                 </div>
             </div>
         </div>
@@ -96,13 +81,12 @@
                         class="display-5 fw-bold lh-1 mb-3"
                         style="color:rgba(0,48,110,255);"
                     >{{banner_iso.titulo}}</h1>
-                    <p class="lead">{{banner_iso.contenido}}</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
+                    <p class="lead" style="text-align:justify" v-html="banner_iso.contenido"></p>
                 </div>
             </div>
         </div>
 
-        <!-- INFORMACION FEATURETTES-->
+        <!-- INFORMACION FEATURETTES
         <div
             class="container-fluid d-flex flex-column justify-content-center"
             v-if="banner_informacion_adicional"
@@ -130,7 +114,161 @@
                     </div>
                 </div>
 
-                <!-- /END THE FEATURETTES -->
+            /END THE FEATURETTES 
+            </div>
+        </div>-->
+
+        <div class="container px-4 py-5 d-flex flex-column">
+            <h1 style="font-weight:bold;">¿Qué es el oxígeno PSA?</h1>
+            <div class="container w-100 d-flex">
+                <div class="container w-50">
+                    <br />
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >PSA es la abreviatura de pressure swing adsorption (adsorción por oscilación de presión).</p>
+                    <ul style="list-style:none" class="m-0 p-0">
+                        <li>
+                            <h2 style="font-weight:bold;text-align:left">Presión</h2>
+                            <p
+                                class="lead"
+                                style="text-align:left"
+                            >Se necesitan presiones elevadas para el proceso, generalmente 4-8 bar (g). En caso de que se requiera una presión más alta para su proceso, esta también se puede aplicar.</p>
+                        </li>
+                        <li>
+                            <h2 style="font-weight:bold;text-align:left">Swing</h2>
+                            <p
+                                class="lead"
+                                style="text-align:left"
+                            >Mientras se presuriza un recipiente, se despresuriza el otro recipiente.</p>
+                        </li>
+                        <li>
+                            <h2 style="font-weight:bold;text-align:left">Adsorción</h2>
+                            <p
+                                class="lead"
+                                style="text-align:left"
+                            >La separación del aire atmosférico se realiza con el principio PSA; el oxígeno se separa del aire mediante un proceso de adsorción.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container w-50 d-flex justify-content-center align-items-center">
+                    <img
+                        src="https://kantata-backend.herokuapp.com/uploads/Microsoft_Teams_image_9_756cba4960.png"
+                        class="img-fluid"
+                        style="margin-top:2rem"
+                        alt
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="container px-4 py-5">
+            <div class="container">
+                <div class="container">
+                    <h1 style="font-weight:bold;">¿Cómo funciona?</h1>
+                    <br />
+                    <p class="lead" style="text-align:justify">
+                        Las plantas de oxígeno PSA de
+                        <strong>KANTATA</strong> se basan en la conocida tecnología PSA (adsorción por oscilación de presión), donde dos recipientes presurizados con zeolita garantizan una producción continua para la separación del oxígeno de otros gases.
+                    </p>
+                    <p class="lead" style="text-align:justify">
+                        El generador de oxígeno
+                        <strong>PSA MXA-10</strong> consta de dos recipientes a presión que almacenan zeolita.
+                    </p>
+
+                    <div class="container-fluid">
+                        <img src="@/assets/Oxygen.png" style="width:75%" alt />
+                    </div>
+                    <br />
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >Se sopla aire comprimido seco a través de una válvula hasta el primer recipiente donde se acumula la presión para alcanzar de 4 a 8 bar. El gas no deseado (Nitrógeno) es adsorbido por la zeolita durante la formación de presión y el oxígeno pasará al tanque de acumulación.</p>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >Mientras la presión aumenta en un recipiente, el otro recipiente se regenera a través de una disminución de la presión. Este proceso garantiza un flujo continuo. Antes de la siguiente etapa de adsorción o desorción, se igualará la presión entre los recipientes de adsorción. Cuando la presión disminuye en el primer recipiente y la zeolita se satura, el producto residual se expulsa a través del sistema de escape. Ahora la presión en el segundo recipiente se acumulará hasta que la presión entre ambos recipientes se iguale una vez más.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container px-4 py-5">
+            <div class="container">
+                <div class="container">
+                    <h1 style="font-weight:bold;">Ventajas del PSA</h1>
+                    <br />
+                    <p class="lead" style="text-align:justify">
+                        El proceso de la tecnología PSA (Absorción por oscilación de presión) es una operación extremadamente limpia. El aire es la única “materia prima”.
+                        Con un generador de oxígeno
+                        <strong>PSA MXA-10</strong> , se garantiza un suministro ininterrumpido de oxígeno.
+                    </p>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >Esto significa que puede producir oxígeno en el lugar y el momento que elija, y en la cantidad y calidad que prefiera. Ya no tendrá que esperar a proveedores externos ni pagar precios excesivos por su O2.</p>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >El PSA es un proceso rentable para producir O2. Ofrece el mejor precio de oxígeno industrial para su aplicación.</p>
+                    <p class="lead" style="text-align:justify">
+                        El proceso de PSA se repite continuamente para proporcionarle un suministro ininterrumpido de oxígeno.
+                        Nuestros generadores de oxígeno PSA pueden producir purezas entre el 92 y 95% de oxígeno.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container banner_principal col-xxl-8 px-4 py-5" v-if="banner_principal">
+            <div class="row d-flex align-items-center g-5 py-5">
+                <div class="container w-50">
+                    <img
+                        :src="'https://www2.kantata.pe'+banner_principal.imagen.url"
+                        class="d-block mx-lg-auto img-fluid"
+                        alt="Generador de Oxigeno"
+                        width="300"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="container w-50">
+                    <h1
+                        class="display-5 fw-bold lh-1 mb-3"
+                        style="color:rgba(0,48,110,255);"
+                    >Compresor de Alta Presión BST MXA-10</h1>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >Los compresores de Alta Presión BST MXA-10 están diseñados para operar en las aplicaciones industriales, médicas y energéticas. Estos compresores están diseñados para una entrega segura y confiable de oxígeno de alta presión, así como otros gases limpios y secos. El BST MXA-10 es la opción preferida por la industria para aplicaciones de llenado de cilindros de alta presión industriales y médicas.</p>
+                    <div class="d-grid gap-2 d-flex justify-content-center">
+                        <router-link to="/contacto">
+                            <button
+                                type="button"
+                                class="btn btn-lg px-4 me-md-2"
+                                style="background-color:#00b6dc;color :white"
+                            >{{banner_principal.boton.texto}}</button>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container px-4 py-5">
+            <div class="container">
+                <div class="container">
+                    <h1 style="font-weight:bold;">Principio de Funcionamiento</h1>
+                    <br />
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >El BST MXA-10 cumple la función de elevar la presión del oxígeno que sale del generador a 14 psi, hasta una presión máxima de 200 bar, regulables. Tiene un control de fin de llenado del tanque de salida de oxígeno.</p>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >El sistema se compone de motor principal, instrumentos y elementos de control eléctrico. El funcionamiento del compresor es a través del motor y de la transmisión por correa en V, que impulsa la rotación del cigüeñal, a través de la biela para hacer que el pistón se mueva alternativamente, lo que hace que el volumen del cilindro cambie, conduzca a el oxígeno al cilindro, y luego a través de la válvula de escape, válvula de retención y tubería en el tanque de compensación.</p>
+                    <p
+                        class="lead"
+                        style="text-align:justify"
+                    >Los Componentes no necesitan aceite lubricante, así evitamos contaminar el oxígeno presurizado y está formado por una estructura completamente sellada, sin fugas. El rodamiento contiene grasa especial importada, garantizando la durabilidad.</p>
+                </div>
             </div>
         </div>
 
@@ -139,7 +277,7 @@
             <h1
                 class="fw-bold lh-1 mb-3"
                 style="color:rgba(0,48,110,255);"
-            >Aplicaciones del generador de gas oxígeno</h1>
+            >Aplicaciones del Oxígeno en Diversas Industrias</h1>
 
             <div class="container">
                 <div class="row row-cols-2 grid">
@@ -153,8 +291,8 @@
                                 <div class="image-hover-image">
                                     <img
                                         v-if="app.imagen.url"
-                                        width="400"
-                                        :src="'https://kantata-backend.herokuapp.com'+app.imagen.url"
+                                        class="image-cover"
+                                        :src="'https://www2.kantata.pe'+app.imagen.url"
                                     />
                                 </div>
                                 <h2 class="titulo fw-bold lh-1 mb-3">{{app.titulo}}</h2>
@@ -190,9 +328,9 @@
     <div v-if="error">
         <h1>ERROR</h1>
         <h5>{{error_data}}</h5>
-        <a href="/">
+        <router-link to="/">
             <button type="button" class="btn btn-primary">Home</button>
-        </a>
+        </router-link>
     </div>
 </template>
 	
@@ -215,9 +353,7 @@ export default {
 
     async beforeCreate() {
         try {
-            const response = await axios.get(
-                "https://kantata-backend.herokuapp.com/home"
-            );
+            const response = await axios.get("https://www2.kantata.pe/home");
             this.banner_principal = response.data.Banner;
             this.banner_informacion = response.data.Banner_Informacion;
             this.banner_beneficios = response.data.Beneficios;
@@ -234,7 +370,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.image-cover {
+    width: 25vw;
+}
 .boton-secundario {
     background-color: rgb(224, 223, 223);
     transition: 0.3s ease-in-out;
@@ -315,6 +454,10 @@ export default {
             width: 100%;
         }
     }
+
+    .image-cover {
+        width: 50vw;
+    }
 }
 
 @media screen and (max-width: 770px) {
@@ -330,6 +473,9 @@ export default {
                 align-items: center;
                 flex-direction: column;
                 margin-top: 0;
+                img {
+                    width: 50%;
+                }
             }
         }
     }

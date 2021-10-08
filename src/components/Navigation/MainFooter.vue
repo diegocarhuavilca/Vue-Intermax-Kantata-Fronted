@@ -9,11 +9,9 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="color:rgba(0,48,110,255)">
-                            <img src="@/assets/logo-square.png" width="30" />
-                            Kantata Lab
-                        </h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nisi modi, veritatis enim cupiditate doloribus animi ullam</p>
+                        <div class="container w-50">
+                            <img src="@/assets/logo.png" class="img-fluid" />
+                        </div>
                     </div>
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -21,9 +19,16 @@
                         <h6
                             class="text-uppercase fw-bold mb-4"
                             style="color:rgba(0,48,110,255)"
-                        >Links</h6>
+                        >Secciones</h6>
                         <p class="m-0">
-                            <a href="/about" class="text-reset m-0">Nosotros</a>
+                            <router-link to="/about" class="text-reset m-0">Sobre Nosotros</router-link>
+                        </p>
+                        <p class="m-0">
+                            <router-link to="/" class="text-reset m-0">Nuestros Productos</router-link>
+                        </p>
+
+                        <p class="m-0">
+                            <router-link to="/contacto" class="text-reset m-0">Contactenos</router-link>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -36,14 +41,35 @@
                             style="color:rgba(0,48,110,255)"
                         >Contacto</h6>
                         <p>
-                            <i class="fas fa-home me-3"></i> Direccion de Lab
-                        </p>
-                        <p>
                             <i class="fas fa-envelope me-3"></i>
-                            info@example.com
+                            info@kantata.pe
                         </p>
                         <p>
-                            <i class="fas fa-phone me-3"></i> + 01 123 123 123
+                            <img
+                                src="@/assets/spain.png"
+                                class="img-fluid"
+                                style="margin-right:20px"
+                                width="25"
+                                alt
+                            />+34 936 272 598
+                        </p>
+                        <p>
+                            <img
+                                src="@/assets/peru.png"
+                                class="img-fluid"
+                                width="25"
+                                style="margin-right:20px"
+                                alt
+                            />+511 740 1102
+                        </p>
+                        <p>
+                            <img
+                                src="@/assets/united-states.png"
+                                class="img-fluid mr-2"
+                                style="margin-right:20px"
+                                width="25"
+                                alt
+                            />+ 1786 796 1322
                         </p>
                     </div>
                     <!-- Grid column -->

@@ -4,20 +4,60 @@
             <img class="d-block mx-auto mb-4" src="@/assets/logo-square.png" alt width="72" />
             <h1 class="display-5 fw-bold">{{data_About.Banner.titulo}}</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">{{data_About.Banner.contenido}}</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                <p class="lead mb-4 contenido" v-html="data_About.Banner.contenido"></p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <br />
+                </div>
+                <img src="@/assets/mapa.png" class="img-fluid" alt />
+                <p class="lead mb-4 contenido">
+                    <br />Nuestra sucursal en Miami, atiende a todo el mercado Norteamericano y Centro América. Nuestra oficina de Lima, Perú, está enfocada en atender las necesidades de nuestros clientes en Latinoamérica, y el mercado Europeo lo asistimos a través de nuestra oficina en Barcelona, España.
+                    <br />
+                    <br />Independientemente de la Solución que escoja y del lugar donde nos contacte, siempre obtendrá la máxima calidad y los costos energéticos más bajos, así como un servicio de mantenimiento preventivo y post venta acorde a sus expectativas.
+                </p>
             </div>
         </div>
-
-        <div class="container mision-vision px-4 py-5">
-            <div class="container-fluid d-flex">
-                <div class="container w-50 col">
-                    <h2 style="font-weight: bold">Mision</h2>
-                    <p>{{data_About.MisionVision.mision}}</p>
+        <div class="container">
+            <div class="row mis">
+                <div class="col">
+                    <div class="container-fluid col">
+                        <h2 style="font-weight: bold">Mision</h2>
+                        <p class="lead contenido">{{data_About.MisionVision.mision}}</p>
+                    </div>
                 </div>
-                <div class="container w-50 col">
-                    <h2 style="font-weight: bold">Vision</h2>
-                    <p>{{data_About.MisionVision.vision}}</p>
+                <div class="col">
+                    <div class="container-fluid col">
+                        <h2 style="font-weight: bold">Vision</h2>
+                        <p class="lead contenido">{{data_About.MisionVision.vision}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <div class="container">
+                        <img src="@/assets/logo.png" alt />
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <div class="container px-4 py-5 certificaciones">
+                        <div class="container-fluid d-flex">
+                            <div
+                                class="container w-50 col d-flex flex-column align-items-center"
+                                v-for="(certi,index) in data_About.certificacion"
+                                :key="index"
+                            >
+                                <img
+                                    v-if="certi.imagen"
+                                    :src="'https://www2.kantata.pe'+certi.imagen.url"
+                                    class="my-3"
+                                    width="200"
+                                    alt="Certificaciones"
+                                />
+                                <h2 style="font-weight: bold">{{certi.titulo}}</h2>
+                                <br />
+                                <p class="lead w-100 contenido" v-html="certi.contenido"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,26 +77,6 @@
                 </template>
             </carousel>
         </div>-->
-
-        <div class="container px-4 py-5 certificaciones">
-            <div class="container-fluid d-flex">
-                <div
-                    class="container w-50 col d-flex flex-column align-items-center"
-                    v-for="(certi,index) in data_About.certificacion"
-                    :key="index"
-                >
-                    <img
-                        v-if="certi.imagen"
-                        :src="'https://www2.kantata.pe'+certi.imagen.url"
-                        class="my-3"
-                        width="200"
-                        alt="Certificaciones"
-                    />
-                    <h2 style="font-weight: bold">{{certi.titulo}}</h2>
-                    <p class="w-50">{{certi.contenido}}</p>
-                </div>
-            </div>
-        </div>
     </div>
     <div
         v-if="(error==false && ready==false)"
@@ -122,7 +142,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contenido {
+    text-align: justify;
+}
 @media screen and (max-width: 780px) {
+    .mis {
+        display: flex;
+        flex-direction: column;
+    }
     .banner-inicial {
         margin: 0 !important;
     }
