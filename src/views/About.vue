@@ -31,10 +31,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row fila">
                 <div class="col d-flex align-items-center">
-                    <div class="container">
-                        <img src="@/assets/logo.png" alt />
+                    <div class="container-fluid">
+                        <img src="@/assets/logo.png" class="img-fluid" alt />
                     </div>
                 </div>
                 <div class="col d-flex align-items-center">
@@ -144,6 +144,13 @@ export default {
 <style lang="scss" scoped>
 .contenido {
     text-align: justify;
+}
+
+@media screen and (max-width: 1000px) {
+    .fila {
+        display: flex;
+        flex-direction: column;
+    }
 }
 @media screen and (max-width: 780px) {
     .mis {

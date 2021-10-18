@@ -41,7 +41,7 @@
                             style="color:rgba(0,48,110,255)"
                         >Contacto</h6>
                         <p>
-                            <i class="fas fa-envelope me-3"></i>
+                            <i class="fas fa-envelope fa-lg me-3" style="color:rgba(0,48,110,255);width:25px;"></i>
                             info@kantata.pe
                         </p>
                         <p>

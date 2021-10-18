@@ -1,17 +1,17 @@
 <template>
-    <div class="container formulario my-5 p-5" v-if="!enviado">
-        <div class="container my-3 p-2" style="background-color:rgba(0,48,110,255)">
+    <div class="container-fluid formulario my-5 p-5" v-if="!enviado">
+        <div class="container-fluid my-3 p-2" style="background-color:rgba(0,48,110,255)">
             <h1 class="text-white">Contactanos</h1>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
             <form @submit.prevent="enviarFomulario">
-                <div class="container w-50 d-flex align-items-center">
-                    <div class="container d-flex flex-column">
+                <div class="container d-flex align-items-center">
+                    <div class="container-fluid d-flex flex-column">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" v-model="Nombre" required />
                     </div>
-                    <div class="container d-flex flex-column">
+                    <div class="container-fluid d-flex flex-column">
                         <label for="apellido">Apellido</label>
                         <input
                             type="text"
@@ -23,8 +23,8 @@
                     </div>
                 </div>
 
-                <div class="container w-50 d-flex align-items-center">
-                    <div class="container d-flex flex-column">
+                <div class="container d-flex align-items-center">
+                    <div class="container-fluid d-flex flex-column">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" v-model="Email" required />
                     </div>
@@ -39,7 +39,7 @@
                         />
                     </div>
                 </div>
-                <div class="container w-50 d-flex flex-column align-items-center mt-3">
+                <div class="container d-flex flex-column align-items-center mt-3">
                     <label for="mensaje">Mensaje</label>
                     <textarea
                         name="mensaje"
@@ -102,6 +102,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 1000px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
 h1 {
     display: inline-block;
 }

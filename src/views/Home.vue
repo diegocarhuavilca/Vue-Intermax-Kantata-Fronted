@@ -118,7 +118,7 @@
             </div>
         </div>-->
 
-        <div class="container px-4 py-5 d-flex flex-column">
+        <div class="container px-4 py-5 d-flex flex-column pregunta">
             <h1 style="font-weight:bold;">¿Qué es el oxígeno PSA?</h1>
             <div class="container w-100 d-flex">
                 <div class="container w-50">
@@ -153,7 +153,7 @@
                 </div>
                 <div class="container w-50 d-flex justify-content-center align-items-center">
                     <img
-                        src="https://kantata-backend.herokuapp.com/uploads/Microsoft_Teams_image_9_756cba4960.png"
+                        src="https://www2.kantata.pe/uploads/Microsoft_Teams_image_9_08e431d8b7.png"
                         class="img-fluid"
                         style="margin-top:2rem"
                         alt
@@ -457,6 +457,17 @@ export default {
 
     .image-cover {
         width: 50vw;
+    }
+
+    .pregunta {
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .container {
+                width: 100% !important;
+            }
+        }
     }
 }
 
